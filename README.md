@@ -2,7 +2,7 @@
 
 My personal portfolio website. A single-page site built with plain HTML and CSS — no frameworks, no build step.
 
-🔗 **Live site:** https://YOUR_USERNAME.github.io/portfolio/
+🔗 **Live site:** https://amanv-smartData.github.io/portfolio/
 
 ---
 
