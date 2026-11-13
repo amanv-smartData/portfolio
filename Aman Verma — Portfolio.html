@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aman Verma — LAMP Stack Developer</title>
+<meta name="description" content="Aman Verma, LAMP stack developer with 3+ years building Laravel and PHP web applications, REST APIs and MySQL backends.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --paper: #ECEFF3;
+    --card: #F6F8FA;
+    --ink: #101A2B;
+    --ink-soft: #46556B;
+    --rule: #C7CFDA;
+    --accent: #1F5C8B;
+    --ochre: #9A6516;
+    --slab: #E0E6ED;
+
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --paper: #0E1522;
+      --card: #141D2C;
+      --ink: #E3E9F1;
+      --ink-soft: #94A3B8;
+      --rule: #2A374C;
+      --accent: #74AEDC;
+      --ochre: #D7A94E;
+      --slab: #1B2537;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper: #0E1522;
+    --card: #141D2C;
+    --ink: #E3E9F1;
+    --ink-soft: #94A3B8;
+    --rule: #2A374C;
+    --accent: #74AEDC;
+    --ochre: #D7A94E;
+    --slab: #1B2537;
+  }
+
+  *, *::before, *::after { box-sizing: inherit; }
+
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5vw, 56px);
+  }
+
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .mono {
+    font-family: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.01em;
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 26px 0 0;
+  }
+  .mark { font-weight: 600; letter-spacing: -0.01em; }
+  .topbar nav { display: flex; gap: 20px; }
+  .topbar nav a { color: var(--ink-soft); text-decoration: none; }
+  .topbar nav a:hover { color: var(--accent); text-decoration: underline; }
+
+  /* ---------- hero ---------- */
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: clamp(28px, 5vw, 64px);
+    align-items: center;
+    padding: clamp(44px, 8vw, 86px) 0 clamp(40px, 7vw, 72px);
+  }
+  h1 {
+    font-size: clamp(2.6rem, 8.4vw, 4.6rem);
+    line-height: 0.96;
+    letter-spacing: -0.035em;
+    font-weight: 700;
+    margin: 0 0 18px;
+  }
+  .role {
+    font-size: clamp(1.05rem, 2.6vw, 1.3rem);
+    color: var(--ink);
+    margin: 0 0 18px;
+    max-width: 30ch;
+  }
+  .intro { color: var(--ink-soft); max-width: 46ch; margin: 0 0 24px; }
+  .contact-row { display: flex; flex-wrap: wrap; gap: 10px 26px; }
+  .contact-row a { text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 2px; }
+  .contact-row a:hover { border-bottom-color: var(--accent); }
+
+  /* ---------- stack diagram ---------- */
+  .diagram { width: 100%; height: auto; display: block; color: var(--ink); }
+  .diagram .slab { fill: var(--slab); stroke: var(--rule); stroke-width: 1; }
+  .diagram .slab-label { fill: var(--ink); font-family: "JetBrains Mono", monospace; font-size: 13px; }
+  .diagram .letter { fill: var(--accent); font-family: "Archivo", sans-serif; font-size: 18px; font-weight: 700; }
+  .diagram .tick { stroke: var(--rule); stroke-width: 1; }
+  .diagram .note { fill: var(--ink-soft); font-family: "JetBrains Mono", monospace; font-size: 11px; }
+
+  /* ---------- sections ---------- */
+  section { padding: clamp(40px, 6vw, 72px) 0; border-top: 1px solid var(--rule); }
+  h2 {
+    font-size: clamp(1.4rem, 3.2vw, 1.75rem);
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+  .section-note { color: var(--ink-soft); margin: 0 0 34px; max-width: 54ch; }
+
+  /* ---------- skills ---------- */
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 2px; }
+  .skill {
+    background: var(--card);
+    padding: 20px 22px;
+    border: 1px solid var(--rule);
+  }
+  .skill h3 { margin: 0 0 8px; font-size: 0.95rem; font-weight: 600; color: var(--accent); }
+  .skill p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; line-height: 1.5; }
+
+  /* ---------- projects ---------- */
+  .project {
+    display: grid;
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: clamp(18px, 4vw, 44px);
+    padding: 30px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .project:last-of-type { border-bottom: 0; padding-bottom: 0; }
+  .project-meta { color: var(--ink-soft); }
+  .project-meta .role-tag { color: var(--ochre); display: block; margin-bottom: 10px; }
+  .project-meta .stack { display: block; line-height: 1.9; }
+  .project h3 {
+    margin: 0 0 10px;
+    font-size: clamp(1.25rem, 3vw, 1.6rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .project p { margin: 0 0 14px; color: var(--ink-soft); max-width: 62ch; }
+  .project ul { margin: 0; padding-left: 1.1em; color: var(--ink); max-width: 62ch; }
+  .project li { margin-bottom: 6px; }
+  .project li::marker { color: var(--accent); }
+
+  /* ---------- closing ---------- */
+  .closing { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 56px); }
+  .edu p { margin: 0 0 4px; }
+  .edu .where { color: var(--ink-soft); }
+  .cta p { margin: 0 0 18px; color: var(--ink-soft); max-width: 40ch; }
+  .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--paper);
+    padding: 12px 22px;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .btn:hover { opacity: 0.88; }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 26px 0 46px;
+    color: var(--ink-soft);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-figure { max-width: 380px; }
+    .project { grid-template-columns: 1fr; gap: 14px; }
+    .project-meta .stack { display: inline; }
+    .closing { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="topbar">
+    <span class="mark">Aman Verma</span>
+    <nav class="mono">
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="mailto:amanv@smartdatainc.net">Email</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1>I build the half<br>you don’t see.</h1>
+      <p class="role">LAMP stack developer — Laravel, PHP, MySQL and the APIs in between.</p>
+      <p class="intro">Three years of designing, building and maintaining web applications end to end. Most of my work sits in healthcare and marketplace products: REST APIs, real-time chat, database tuning and the unglamorous maintenance that keeps software running.</p>
+      <div class="contact-row mono">
+        <a href="mailto:amanv@smartdatainc.net">amanv@smartdatainc.net</a>
+        <a href="https://github.com/YOUR_USERNAME">GitHub</a>
+        <a href="https://linkedin.com/in/YOUR_LINKEDIN">LinkedIn</a>
+      </div>
+    </div>
+
+    <figure class="hero-figure" style="margin:0">
+      <svg class="diagram" viewBox="0 0 400 250" role="img" aria-label="Diagram of the LAMP stack: Linux, Apache, MySQL and PHP with Laravel.">
+        <text class="note" x="58" y="14">the stack I work in</text>
+
+        <g>
+          <rect class="slab" x="58" y="26" width="300" height="46"></rect>
+          <text class="slab-label" x="76" y="54">PHP · Laravel</text>
+          <text class="letter" x="30" y="55">P</text>
+          <line class="tick" x1="42" y1="49" x2="58" y2="49"></line>
+        </g>
+
+        <g>
+          <rect class="slab" x="58" y="80" width="300" height="46"></rect>
+          <text class="slab-label" x="76" y="108">MySQL</text>
+          <text class="letter" x="30" y="109">M</text>
+          <line class="tick" x1="42" y1="103" x2="58" y2="103"></line>
+        </g>
+
+        <g>
+          <rect class="slab" x="58" y="134" width="300" height="46"></rect>
+          <text class="slab-label" x="76" y="162">Apache</text>
+          <text class="letter" x="30" y="163">A</text>
+          <line class="tick" x1="42" y1="157" x2="58" y2="157"></line>
+        </g>
+
+        <g>
+          <rect class="slab" x="58" y="188" width="300" height="46"></rect>
+          <text class="slab-label" x="76" y="216">Linux</text>
+          <text class="letter" x="30" y="217">L</text>
+          <line class="tick" x1="42" y1="211" x2="58" y2="211"></line>
+        </g>
+      </svg>
+    </figure>
+  </div>
+
+  <section id="skills">
+    <h2>What I work with</h2>
+    <p class="section-note">Backend first, but comfortable enough on the frontend to ship a feature without handing it off.</p>
+    <div class="skills">
+      <div class="skill">
+        <h3>Languages &amp; frameworks</h3>
+        <p>PHP, Laravel, JavaScript, jQuery, React.js, HTML, CSS</p>
+      </div>
+      <div class="skill">
+        <h3>Databases</h3>
+        <p>MySQL, MS SQL Server, query and schema optimization</p>
+      </div>
+      <div class="skill">
+        <h3>APIs</h3>
+        <p>REST API design and integration, third-party integrations, Swagger documentation, WebSockets with Ratchet</p>
+      </div>
+      <div class="skill">
+        <h3>Servers &amp; deployment</h3>
+        <p>Apache, Linux, cloud deployment</p>
+      </div>
+      <div class="skill">
+        <h3>Tools</h3>
+        <p>GitHub, Postman, Swagger, Jira, Cursor, Windsurf</p>
+      </div>
+      <div class="skill">
+        <h3>Ways of working</h3>
+        <p>Agile teams, code review, testing and long-term maintenance</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <h2>Selected work</h2>
+    <p class="section-note">Four projects built at smartData Enterprises, two of them as lead developer.</p>
+
+    <article class="project">
+      <div class="project-meta mono">
+        <span class="role-tag">Lead developer</span>
+        <span class="stack">Core PHP<br>JavaScript · jQuery<br>HTML · CSS</span>
+      </div>
+      <div>
+        <h3>aiirmd</h3>
+        <p>Medical billing and practice management software for healthcare providers — scheduling, billing and claims processing in one place, built to HIPAA compliance standards, with an in-app chat.</p>
+        <ul>
+          <li>Built features end to end in Core PHP following LAMP standards</li>
+          <li>Designed and implemented the RESTful APIs</li>
+          <li>Tested and maintained the product, improving functionality and performance over time</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-meta mono">
+        <span class="role-tag">Lead developer</span>
+        <span class="stack">Laravel<br>JavaScript · jQuery<br>HTML · CSS</span>
+      </div>
+      <div>
+        <h3>Intell Patient Communication System</h3>
+        <p>A SaaS healthcare communication and EMR platform that automates clinic workflows, patient messaging and medical record management while staying HIPAA compliant.</p>
+        <ul>
+          <li>Built features end to end in Laravel</li>
+          <li>Added real-time chat using Ratchet PHP WebSockets</li>
+          <li>Created REST APIs for the mobile app and documented them in Swagger</li>
+          <li>Created the REST APIs behind the web application</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-meta mono">
+        <span class="role-tag">Developer</span>
+        <span class="stack">Laravel<br>JavaScript · jQuery<br>HTML · CSS</span>
+      </div>
+      <div>
+        <h3>Ambayo</h3>
+        <p>A marketplace where people buy and sell products by category, run their own stores and earn rewards for completing milestones. I worked across backend and frontend.</p>
+        <ul>
+          <li>Built features end to end in Laravel</li>
+          <li>Added real-time chat using Ratchet PHP WebSockets</li>
+          <li>Designed and implemented the REST APIs for the web application</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-meta mono">
+        <span class="role-tag">Developer</span>
+        <span class="stack">Core PHP<br>JavaScript · jQuery<br>HTML · CSS</span>
+      </div>
+      <div>
+        <h3>BirthTracks</h3>
+        <p>Records software for midwives, doctors and birth professionals — patient details, birth records and appointment scheduling kept in one system. I worked on the backend.</p>
+        <ul>
+          <li>Built features end to end in Core PHP</li>
+          <li>Designed and implemented the REST APIs for the web application</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <div class="closing">
+      <div class="edu">
+        <h2>Education</h2>
+        <p>Master of Computer Application</p>
+        <p class="where">AKTU, Lucknow, Uttar Pradesh</p>
+      </div>
+      <div class="cta">
+        <h2>Get in touch</h2>
+        <p>Open to backend and full-stack work in Laravel and PHP. The quickest way to reach me is email.</p>
+        <a class="btn" href="mailto:amanv@smartdatainc.net">Email me</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="mono">
+    <span>Mohali, Punjab · India</span>
+    <span>smartData Enterprises (India) Ltd</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
